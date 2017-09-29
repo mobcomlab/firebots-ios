@@ -250,10 +250,12 @@ class ChatViewController: JSQMessagesViewController {
                                 if let text = messageData[FBConstant.Message.text] as? String, text.characters.count > 0 {
                                     self.messages.insert(Message(id: messageSnapshot.key, senderID: senderID, displayName: senderName, text: text, sendingTime: Date(iso8601: sendingTime) ?? Date(), isFirstMessageOfDate: isFirstMessageOfDate), at: 0)
                                     self.messageKeys.append(messageSnapshot.key)
+                                    print("TESTTEST \(messageSnapshot.key)")
                                     if currentChild == 0 {
                                         FBChatroom.updateChatroomUserRead(messageID: messageSnapshot.key)
                                         self.finishReceivingMessage()
                                         self.dismissIndicator(view: self.mainViewController.view)
+                                        self.observeNewMessage()
                                     }
                                 } else if let photoURL = messageData[FBConstant.Message.photoURL] as? String {
                                     if let mediaItem = PhotoMediaItem(maskAsOutgoing: senderID == self.senderId) {
@@ -269,6 +271,7 @@ class ChatViewController: JSQMessagesViewController {
                                             FBChatroom.updateChatroomUserRead(messageID: messageSnapshot.key)
                                             self.finishReceivingMessage()
                                             self.dismissIndicator(view: self.mainViewController.view)
+                                            self.observeNewMessage()
                                         }
                                     }
                                 }
@@ -278,6 +281,7 @@ class ChatViewController: JSQMessagesViewController {
                                     self.finishReceivingMessage()
                                     self.collectionView.isHidden = false
                                     self.dismissIndicator(view: self.mainViewController.view)
+                                    self.observeNewMessage()
                                 }
                                 print("Error! Could not decode message data")
                             }
@@ -286,6 +290,7 @@ class ChatViewController: JSQMessagesViewController {
                             self.finishReceivingMessage()
                             self.collectionView.isHidden = false
                             self.dismissIndicator(view: self.mainViewController.view)
+                            self.observeNewMessage()
                         }
                     }
                 }
@@ -297,50 +302,25 @@ class ChatViewController: JSQMessagesViewController {
                     self.finishReceivingMessage()
                     self.collectionView.isHidden = false
                     self.dismissIndicator(view: self.mainViewController.view)
+                    self.observeNewMessage()
                 }
             })
-            
         }
-        
-        newMessageRefHandle = messageRef.observe(.childAdded, with: { (snapshot) in
-            if !self.messageKeys.contains(snapshot.key) {
-                if let messageData = snapshot.value as? [String: AnyObject] {
-                    let isFirstMessageOfDate = messageData[FBConstant.Message.isFirstMessageOfDate] as? Bool ?? false
-                    if let senderID = messageData[FBConstant.Message.senderID] as? String, let senderName = messageData[FBConstant.Message.senderName] as? String, let sendingTime = messageData[FBConstant.Message.sendingTime] as? String {
-                        if let text = messageData[FBConstant.Message.text] as? String, text.characters.count > 0 {
-                            self.messages.append(Message(id: snapshot.key, senderID: senderID, displayName: senderName, text: text, sendingTime: Date(iso8601: sendingTime) ?? Date(), isFirstMessageOfDate: isFirstMessageOfDate))
-                            self.messageKeys.append(snapshot.key)
-                            FBChatroom.updateChatroomUserRead(messageID: snapshot.key)
-                            self.finishReceivingMessage()
-                        } else if let photoURL = messageData[FBConstant.Message.photoURL] as? String {
-                            if let mediaItem = PhotoMediaItem(maskAsOutgoing: senderID == self.senderId) {
-                                
-                                self.messages.append(Message(id: snapshot.key, senderID: senderID, displayName: senderName, media: mediaItem, photoURL: photoURL, sendingTime: Date(iso8601: sendingTime) ?? Date(), isFirstMessageOfDate: isFirstMessageOfDate))
-                                self.messageKeys.append(snapshot.key)
-
-                                if mediaItem.image == nil {
-                                    self.photoMessageMap[snapshot.key] = mediaItem
-                                    self.photoMessageMapCount += 1
-                                }
-                                
-                                FBChatroom.updateChatroomUserRead(messageID: snapshot.key)
-                                self.finishReceivingMessage()
-                            }
-                        }
-                    }
-                }
-            }
-        })
+        else {
+            observeNewMessage()
+        }
         
         // We can also use the observer method to listen for
         // changes to existing messages.
         // We use this to be notified when a photo has been stored
         // to the Firebase Storage, so we can update the message data
         updatedMessageRefHandle = messageRef.observe(.childChanged, with: { (snapshot) in
+            print("TESTTEST3")
             let key = snapshot.key
             let messageData = snapshot.value as! [String: AnyObject]
             
             if let photoURL = messageData[FBConstant.Message.photoURL] as! String! {
+                print("TESTTEST3 \(photoURL)")
                 // The photo has been updated.
                 if let mediaItem = self.photoMessageMap[key] {
                     self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: key)
@@ -389,6 +369,43 @@ class ChatViewController: JSQMessagesViewController {
             }
         })
         
+    }
+    
+    private func observeNewMessage() {
+        newMessageRefHandle = messageRef.observe(.childAdded, with: { (snapshot) in
+            if !self.messageKeys.contains(snapshot.key) {
+                if let messageData = snapshot.value as? [String: AnyObject] {
+                    let isFirstMessageOfDate = messageData[FBConstant.Message.isFirstMessageOfDate] as? Bool ?? false
+                    if let senderID = messageData[FBConstant.Message.senderID] as? String, let senderName = messageData[FBConstant.Message.senderName] as? String, let sendingTime = messageData[FBConstant.Message.sendingTime] as? String {
+                        if let text = messageData[FBConstant.Message.text] as? String, text.characters.count > 0 {
+                            self.messages.append(Message(id: snapshot.key, senderID: senderID, displayName: senderName, text: text, sendingTime: Date(iso8601: sendingTime) ?? Date(), isFirstMessageOfDate: isFirstMessageOfDate))
+                            self.messageKeys.append(snapshot.key)
+                            print("TESTTEST2 \(snapshot.key)")
+                            FBChatroom.updateChatroomUserRead(messageID: snapshot.key)
+                            self.finishReceivingMessage()
+                        } else if let photoURL = messageData[FBConstant.Message.photoURL] as? String {
+                            if let mediaItem = PhotoMediaItem(maskAsOutgoing: senderID == self.senderId) {
+                                
+                                self.messages.append(Message(id: snapshot.key, senderID: senderID, displayName: senderName, media: mediaItem, photoURL: photoURL, sendingTime: Date(iso8601: sendingTime) ?? Date(), isFirstMessageOfDate: isFirstMessageOfDate))
+                                self.messageKeys.append(snapshot.key)
+                                
+                                if photoURL.hasPrefix("gs://") {
+                                    self.photoMessageMap[snapshot.key] = mediaItem
+                                    self.photoMessageMapCount += 1
+                                    self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: snapshot.key)
+                                } else if mediaItem.image == nil {
+                                    self.photoMessageMap[snapshot.key] = mediaItem
+                                    self.photoMessageMapCount += 1
+                                }
+                                
+                                FBChatroom.updateChatroomUserRead(messageID: snapshot.key)
+                                self.finishReceivingMessage()
+                            }
+                        }
+                    }
+                }
+            }
+        })
     }
     
     private func observeRead() {
@@ -597,7 +614,7 @@ class ChatViewController: JSQMessagesViewController {
                 self.photoMessageMap.removeValue(forKey: key!)
                 self.photoMessageMapCount -= 1
                 self.photoMessageLoadedCount += 1
-                if self.photoMessageLoadedCount % 5 == 0 || self.photoMessageMapCount == 0 {
+                if self.photoMessageLoadedCount % 5 == 0 || self.photoMessageMapCount <= 0 {
                     self.collectionView.reloadData()
                 }
             }
@@ -778,17 +795,17 @@ extension ChatViewController {
             }
             
             // messageAvatar
-            if message.senderId != senderId {
-                if let constraint = (cell.subviews[0].constraints.filter{$0.firstAttribute == .top && $0.secondAttribute == .bottom && $0.firstItem === cell.cellBottomLabel && $0.secondItem === cell.avatarContainerView}.first) {
-                    cell.subviews[0].removeConstraint(constraint)
-                    cell.subviews[0].addConstraint(NSLayoutConstraint(item: cell.avatarContainerView, attribute: .top, relatedBy: .equal, toItem: cell.messageBubbleTopLabel, attribute: .top, multiplier: 1.0, constant: 7))
-                }
-            }
+//            if message.senderId != senderId {
+//                if let constraint = (cell.subviews[0].constraints.filter{$0.firstAttribute == .top && $0.secondAttribute == .bottom && $0.firstItem === cell.cellBottomLabel && $0.secondItem === cell.avatarContainerView}.first) {
+//                    cell.subviews[0].removeConstraint(constraint)
+//                    cell.subviews[0].addConstraint(NSLayoutConstraint(item: cell.avatarContainerView, attribute: .top, relatedBy: .equal, toItem: cell.messageBubbleTopLabel, attribute: .top, multiplier: 1.0, constant: 7))
+//                }
+//            }
             
             // messageBubbleTopLabel
             if message.senderId != senderId {
                 cell.messageBubbleTopLabel.textColor = Style.Color.textNormal
-                cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0, kJSQMessagesCollectionViewAvatarSizeDefault+8, 0, 0)
+//                cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0, kJSQMessagesCollectionViewAvatarSizeDefault+8, 0, 0)
             }
             
             // messageBubbleContainer
