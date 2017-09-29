@@ -441,6 +441,7 @@
 				TargetAttributes = {
 					84A6B64B1F7DEE9700FD7575 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 65PKPTRG94;
 						ProvisioningStyle = Automatic;
 					};
 					84A6B65F1F7DEE9700FD7575 = {
@@ -846,6 +847,7 @@
 			baseConfigurationReference = 1230600C4D99F283689A806C /* Pods-FireBots.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 65PKPTRG94;
 				INFOPLIST_FILE = FireBots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobcomlab.FireBots;
@@ -859,6 +861,7 @@
 			baseConfigurationReference = 1B3A0B231511C729A0359CF4 /* Pods-FireBots.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 65PKPTRG94;
 				INFOPLIST_FILE = FireBots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobcomlab.FireBots;

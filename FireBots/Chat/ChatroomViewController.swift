@@ -24,7 +24,7 @@ class ChatroomViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 120, height: 40))
         label.textAlignment = .center
         label.font = Style.Font.navigationTitleFont
-        label.text = "THE HEROS"
+        label.text = "FIREBOTS"
         label.textColor = Style.Color.white
         navigationItem.titleView = label
         
