@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 import FirebaseCore
 import FirebaseAuth
 import FirebaseInstanceID
@@ -182,9 +184,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    break
 //                }
             }
-            else {
-                self.mainViewController?.forceSwapToTabBarController()
-            }
+//            else {
+//                self.mainViewController?.forceSwapToTabBarController()
+//            }
         }
     }
     

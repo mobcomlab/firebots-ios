@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dC5-F9-kgY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="U6G-nk-w1P">
+            <objects>
+                <viewController id="dC5-F9-kgY" customClass="SplashScreenViewController" customModule="FireBots" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xEf-re-c6z"/>
+                        <viewControllerLayoutGuide type="bottom" id="kVl-dM-NWC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rFo-Ht-sr5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE HEROS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq6-Fy-BCs">
+                                <rect key="frame" x="86.5" y="312" width="202" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26139187812805176" green="0.51379132270812988" blue="0.98634582757949829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iq6-Fy-BCs" firstAttribute="centerX" secondItem="rFo-Ht-sr5" secondAttribute="centerX" id="02b-s0-F5c"/>
+                            <constraint firstItem="iq6-Fy-BCs" firstAttribute="centerY" secondItem="rFo-Ht-sr5" secondAttribute="centerY" id="Ewb-Vo-q7k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="splashScreenText" destination="iq6-Fy-BCs" id="2kt-32-uw5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rj1-aG-cUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="182"/>
+        </scene>
+    </scenes>
+</document>
