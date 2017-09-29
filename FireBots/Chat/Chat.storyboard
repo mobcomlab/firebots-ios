@@ -22,37 +22,39 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chatroom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQG-hy-Dx8">
-                                <rect key="frame" x="149" y="291" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaF-Db-wBg">
-                                <rect key="frame" x="87.5" y="336" width="200" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bt-gV-YDe" customClass="Button" customModule="FireBots">
+                                <rect key="frame" x="87.5" y="279" width="200" height="45"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.73725490199999999" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="o8J-Ki-2Zb"/>
-                                    <constraint firstAttribute="width" constant="200" id="qQM-Wc-l1z"/>
+                                    <constraint firstAttribute="height" constant="45" id="O6a-Kb-JKY"/>
+                                    <constraint firstAttribute="width" constant="200" id="pwY-Hs-iRg"/>
                                 </constraints>
-                                <state key="normal" title="Logout"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Start Chat">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="logoutPressed" destination="gjI-cC-YlI" eventType="touchUpInside" id="XE8-PQ-u5L"/>
+                                    <action selector="startChatPressed" destination="gjI-cC-YlI" eventType="touchUpInside" id="4RI-I0-TNA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CQG-hy-Dx8" firstAttribute="centerY" secondItem="tHI-QH-aXm" secondAttribute="centerY" id="1bZ-M0-zc8"/>
-                            <constraint firstItem="CQG-hy-Dx8" firstAttribute="centerX" secondItem="tHI-QH-aXm" secondAttribute="centerX" id="3Ev-tB-x1y"/>
-                            <constraint firstItem="HaF-Db-wBg" firstAttribute="top" secondItem="CQG-hy-Dx8" secondAttribute="bottom" constant="24" id="uyA-wy-yWp"/>
-                            <constraint firstItem="6fv-hr-SQy" firstAttribute="top" secondItem="HaF-Db-wBg" secondAttribute="bottom" constant="173" id="vrI-qc-CjP"/>
-                            <constraint firstItem="HaF-Db-wBg" firstAttribute="centerX" secondItem="tHI-QH-aXm" secondAttribute="centerX" id="x6X-fe-cdX"/>
+                            <constraint firstItem="6Bt-gV-YDe" firstAttribute="centerX" secondItem="tHI-QH-aXm" secondAttribute="centerX" id="dYL-2j-A2V"/>
+                            <constraint firstItem="6Bt-gV-YDe" firstAttribute="centerY" secondItem="tHI-QH-aXm" secondAttribute="centerY" id="tK2-Dq-lpZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="THE HEROS" id="Lf9-WT-4uX">
                         <barButtonItem key="backBarButtonItem" title=" " id="7Fw-ar-o26"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="jIk-xQ-Olm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="logoutPressed" destination="gjI-cC-YlI" id="e6l-pA-2Mg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="startChatButton" destination="6Bt-gV-YDe" id="iuB-r9-VqC"/>
                         <segue destination="oIn-de-zdB" kind="show" identifier="ChatViewController" id="lD9-Ii-QEt"/>
                     </connections>
                 </viewController>

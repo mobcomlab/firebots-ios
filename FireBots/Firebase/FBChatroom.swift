@@ -20,7 +20,7 @@ class FBChatroom {
         return Storage.storage().reference().child(FBConstant.Table.chatroom)
     }
     
-    static func removeMessage(chatroomID: String, message: Message) {
+    static func removeMessage(message: Message) {
         if (message.isMediaMessage) {
             let mediaStorage = Storage.storage().reference(forURL: message.photoURL)
 
@@ -29,11 +29,20 @@ class FBChatroom {
                     // handle error
                     print(error)
                 } else {
-                    getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.message).child(message.id).removeValue()
+                    getChatroomRef().child(FBConstant.Chatroom.message).child(message.id).removeValue()
                 }
             }
         } else {
-            getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.message).child(message.id).removeValue();
+            getChatroomRef().child(FBConstant.Chatroom.message).child(message.id).removeValue();
         }
+    }
+    
+    static func updateChatroomUserRead(messageID: String) {
+        let chatroomUserReadUpdate = [FBUser.uid: messageID]
+        getChatroomRef().child(FBConstant.Chatroom.read).updateChildValues(chatroomUserReadUpdate)
+    }
+    
+    static func removeChatroomUserRead() {
+        getChatroomRef().child(FBConstant.Chatroom.read).removeValue();
     }
 }
