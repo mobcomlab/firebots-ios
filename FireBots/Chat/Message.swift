@@ -10,28 +10,14 @@ import JSQMessagesViewController
 
 class Message: JSQMessage {
     var id: String
-    var photoURL: String
     var sendingTime: Date
     var sendingTimeString: String
-    var isFirstMessageOfDate: Bool
     
-    init(id: String, senderID: String, displayName: String, text: String, sendingTime: Date, isFirstMessageOfDate: Bool) {
+    init(id: String, senderID: String, displayName: String, text: String, sendingTime: Date) {
         self.id = id
-        self.photoURL = ""
         self.sendingTime = sendingTime
         self.sendingTimeString = ""
-        self.isFirstMessageOfDate = isFirstMessageOfDate
         super.init(senderId: senderID, senderDisplayName: displayName, date: sendingTime, text: text)
-        self.getSendingTimeString()
-    }
-    
-    init(id: String, senderID: String, displayName: String, media: JSQMessageMediaData, photoURL: String, sendingTime: Date, isFirstMessageOfDate: Bool) {
-        self.id = id
-        self.photoURL = photoURL
-        self.sendingTime = sendingTime
-        self.sendingTimeString = ""
-        self.isFirstMessageOfDate = isFirstMessageOfDate
-        super.init(senderId: senderID, senderDisplayName: displayName, date: sendingTime, media: media)
         self.getSendingTimeString()
     }
     

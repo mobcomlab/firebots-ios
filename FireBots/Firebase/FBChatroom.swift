@@ -21,20 +21,7 @@ class FBChatroom {
     }
     
     static func removeMessage(message: Message) {
-        if (message.isMediaMessage) {
-            let mediaStorage = Storage.storage().reference(forURL: message.photoURL)
-
-            mediaStorage.delete { error in
-                if let error = error {
-                    // handle error
-                    print(error)
-                } else {
-                    getChatroomRef().child(FBConstant.Chatroom.message).child(message.id).removeValue()
-                }
-            }
-        } else {
-            getChatroomRef().child(FBConstant.Chatroom.message).child(message.id).removeValue();
-        }
+        getChatroomRef().child(FBConstant.Chatroom.message).child(message.id).removeValue();
     }
     
     static func updateChatroomUserRead(messageID: String) {
