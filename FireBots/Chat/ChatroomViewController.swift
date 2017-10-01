@@ -47,6 +47,7 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
         // Notification direct when press on notification type newMessage
         if let chatroomID = mainViewController.chatroomID {
             self.chatroomID = chatroomID
+            mainViewController.chatroomID = nil
             startChat()
         }
     }
