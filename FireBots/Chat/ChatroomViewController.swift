@@ -105,24 +105,29 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard var user = user, let location = manager.location else {
+        guard let user = user, let location = manager.location else {
             return
         }
         let latLng: CLLocationCoordinate2D = location.coordinate
         if let lat = user.lat, let long = user.long {
             if lat != latLng.latitude && long != latLng.longitude {
-                user.lat = latLng.latitude
-                user.long = latLng.longitude
+                self.user?.lat = latLng.latitude
+                self.user?.long = latLng.longitude
+                user.ref?.updateChildValues([
+                    FBConstant.User.lat: latLng.latitude,
+                    FBConstant.User.lng: latLng.longitude
+                ])
             }
         }
         else {
-            user.lat = latLng.latitude
-            user.long = latLng.longitude
+            self.user?.lat = latLng.latitude
+            self.user?.long = latLng.longitude
+            user.ref?.updateChildValues([
+                FBConstant.User.lat: latLng.latitude,
+                FBConstant.User.lng: latLng.longitude
+            ])
         }
         
-        self.user = user
         startChatButton.enable()
-        
-        FBUser.getUserRef().child(FBUser.uid).setValue(user.toAnyObject())
     }
 }
