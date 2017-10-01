@@ -35,9 +35,6 @@ extension MainViewController {
     }
     
     func swapToChatroomViewController() {
-        if let navController = currentViewController as? UINavigationController, navController.viewControllers[0].isKind(of: ChatroomViewController.self) {
-            return
-        }
         let chatStoryboard = UIStoryboard(name: "Chat", bundle: Bundle.main)
         self.setViewController(newViewController: chatStoryboard.instantiateInitialViewController()!)
     }

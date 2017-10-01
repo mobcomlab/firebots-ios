@@ -43,6 +43,12 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
                 self.mainViewController.swapToLoginViewController()
             }
         })
+        
+        // Notification direct when press on notification type newMessage
+        if let chatroomID = mainViewController.chatroomID {
+            self.chatroomID = chatroomID
+            startChat()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +81,10 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
         chatroomID = FBChatroom.getChatroomRef().childByAutoId().key
         let chatroom = Chatroom(id: chatroomID, lat: lat, long: long)
         FBChatroom.getChatroomRef().child(chatroomID).setValue(chatroom.toAnyObject())
+        startChat()
+    }
+    
+    func startChat() {
         FBChatroom.getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.user).child(FBUser.uid).setValue(true)
         getMembers()
     }

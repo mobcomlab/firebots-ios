@@ -146,9 +146,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let state: UIApplicationState = UIApplication.shared.applicationState
         if state == .active {
             if let notificationAPS = notification["aps"] as? NSDictionary {
+                let title = (notificationAPS["alert"] as! NSDictionary)["title"] as? String ?? ""
                 let body = (notificationAPS["alert"] as! NSDictionary)["body"] as? String ?? ""
                 if body != "" {
-                    notificationForeground(notification: notification, title: nil, body: body)
+                    notificationForeground(notification: notification, title: title, body: body)
                 }
             }
         }
@@ -166,23 +167,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 FBUser.uid = user.uid
             }
             if let type = notification[NotificationType.type] as? String {
-//                switch type {
-//                case NotificationType.paymentConfirmed:
-//                    if let bookingID = notification[NotificationExtra.bookingID] as? String {
-//                        self.mainViewController?.bookingID = bookingID
-//                        self.mainViewController?.forceSwapToTabBarController(selectedIndex: 1)
-//                    }
-//                    break
+                switch type {
+                case NotificationType.chatroomInvitation:
+                    if let chatroomID = notification[NotificationExtra.chatroomID] as? String {
+                        self.mainViewController?.chatroomID = chatroomID
+                        self.mainViewController?.swapToChatroomViewController()
+                    }
+                    break
 //                case NotificationType.newMessage:
 //                    if let activityID = notification[NotificationExtra.activityID] as? String {
 //                        self.mainViewController?.activityID = activityID
 //                        self.mainViewController?.forceSwapToTabBarController(selectedIndex: 2)
 //                    }
 //                    break
-//                default:
-//                    self.mainViewController?.forceSwapToTabBarController()
-//                    break
-//                }
+                default:
+                    self.mainViewController?.swapToChatroomViewController()
+                    break
+                }
             }
 //            else {
 //                self.mainViewController?.forceSwapToTabBarController()
@@ -190,23 +191,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func notificationForeground(notification: [AnyHashable: Any], title: String?, body: String) {
+    func notificationForeground(notification: [AnyHashable: Any], title: String, body: String) {
         if let type = notification[NotificationType.type] as? String {
-//            switch type {
-//            case NotificationType.paymentConfirmed:
-//                if let bookingID = notification[NotificationExtra.bookingID] as? String {
-//                    self.mainViewController?.showAlert(title: title, message: body, buttonText: NSLocalizedString("View ticket button", comment: ""), completion: { (_) in
-//                        self.mainViewController?.bookingID = bookingID
-//                        self.mainViewController?.forceSwapToTabBarController(selectedIndex: 1)
-//                    })
-//                }
-//                break
+            switch type {
+            case NotificationType.chatroomInvitation:
+                if let chatroomID = notification[NotificationExtra.chatroomID] as? String {
+                    self.mainViewController?.showYesNoAlert(
+                        title: title,
+                        message: body,
+                        positiveButtonText: "Yes",
+                        negativeButtonText: "No",
+                        positiveCompletion: { (_) in
+                            self.mainViewController?.chatroomID = chatroomID
+                            self.mainViewController?.swapToChatroomViewController()
+                    },
+                        negativeCompletion: nil
+                    )                }
+                break
 //            case NotificationType.newMessage:
 //                self.mainViewController?.refreshBadgeNumber()
 //                break
-//            default:
-//                break
-//            }
+            default:
+                break
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
 
     private var viewController: UIViewController
+    var chatroomID: String?
+    
     var dynamicLinkURL: URL? {
         didSet {
 //            if !currentViewController.isKind(of: SplashScreenViewController.self) {

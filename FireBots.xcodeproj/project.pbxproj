@@ -10,7 +10,6 @@
 		04E3210BCB15320206618A41 /* Pods_FireBotsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2B6F008FF6956717CC4116 /* Pods_FireBotsTests.framework */; };
 		1F8798331F998E3D56D094EF /* Pods_FireBotsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE94F6A664AAACE401C36AF /* Pods_FireBotsUITests.framework */; };
 		58F478A350A9E464D3691B9F /* Pods_FireBots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B729381B94A41F5B402E2F5 /* Pods_FireBots.framework */; };
-		8487FB851F7DF60700D9A104 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8487FB841F7DF60700D9A104 /* GoogleService-Info.plist */; };
 		8487FB891F7DF91800D9A104 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FB881F7DF91800D9A104 /* SplashScreenViewController.swift */; };
 		8487FB8B1F7DF92F00D9A104 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FB8A1F7DF92F00D9A104 /* MainViewController.swift */; };
 		8487FB901F7DFA8F00D9A104 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8487FB8F1F7DFA8F00D9A104 /* Login.storyboard */; };
@@ -60,6 +59,7 @@
 		84A6B6651F7DEE9700FD7575 /* FireBotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B6641F7DEE9700FD7575 /* FireBotsTests.swift */; };
 		84A6B6701F7DEE9700FD7575 /* FireBotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B66F1F7DEE9700FD7575 /* FireBotsUITests.swift */; };
 		84D548931F80A04800F47428 /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D548921F80A04800F47428 /* Chatroom.swift */; };
+		84D548951F80C60100F47428 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D548941F80C60100F47428 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +87,6 @@
 		56D004A1C65A597AB089E40F /* Pods-FireBotsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBotsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireBotsUITests/Pods-FireBotsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		76883BB52037149E8E3E3465 /* Pods-FireBotsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBotsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBotsUITests/Pods-FireBotsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7B034E6496764C1DF3CB0525 /* Pods-FireBotsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBotsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireBotsTests/Pods-FireBotsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8487FB841F7DF60700D9A104 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8487FB881F7DF91800D9A104 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		8487FB8A1F7DF92F00D9A104 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8487FB8F1F7DFA8F00D9A104 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -144,6 +143,8 @@
 		84A6B66F1F7DEE9700FD7575 /* FireBotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBotsUITests.swift; sourceTree = "<group>"; };
 		84A6B6711F7DEE9700FD7575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D548921F80A04800F47428 /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
+		84D548941F80C60100F47428 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84D548961F80CFC800F47428 /* FireBots.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireBots.entitlements; sourceTree = "<group>"; };
 		BC2B6F008FF6956717CC4116 /* Pods_FireBotsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBotsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0872C549F137510FED1C422 /* Pods-FireBotsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBotsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBotsTests/Pods-FireBotsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,6 +299,7 @@
 		84A6B64E1F7DEE9700FD7575 /* FireBots */ = {
 			isa = PBXGroup;
 			children = (
+				84D548961F80CFC800F47428 /* FireBots.entitlements */,
 				84A6B64F1F7DEE9700FD7575 /* AppDelegate.swift */,
 				84A6B6581F7DEE9700FD7575 /* LaunchScreen.storyboard */,
 				8487FBF71F7E2EE400D9A104 /* SplashScreen.storyboard */,
@@ -316,7 +318,7 @@
 				8487FBCC1F7E02B100D9A104 /* Style.swift */,
 				8487FBD01F7E02F000D9A104 /* BebasNeue.otf */,
 				84A6B65B1F7DEE9700FD7575 /* Info.plist */,
-				8487FB841F7DF60700D9A104 /* GoogleService-Info.plist */,
+				84D548941F80C60100F47428 /* GoogleService-Info.plist */,
 			);
 			path = FireBots;
 			sourceTree = "<group>";
@@ -429,8 +431,13 @@
 				TargetAttributes = {
 					84A6B64B1F7DEE9700FD7575 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 65PKPTRG94;
+						DevelopmentTeam = PAY24GA3J8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					84A6B65F1F7DEE9700FD7575 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -472,9 +479,9 @@
 				8487FBED1F7E15BA00D9A104 /* Chat.storyboard in Resources */,
 				8487FBF91F7E2EE400D9A104 /* SplashScreen.storyboard in Resources */,
 				84A6B65A1F7DEE9700FD7575 /* LaunchScreen.storyboard in Resources */,
-				8487FB851F7DF60700D9A104 /* GoogleService-Info.plist in Resources */,
 				84A6B6571F7DEE9700FD7575 /* Assets.xcassets in Resources */,
 				8487FB901F7DFA8F00D9A104 /* Login.storyboard in Resources */,
+				84D548951F80C60100F47428 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,7 +838,8 @@
 			baseConfigurationReference = 1230600C4D99F283689A806C /* Pods-FireBots.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65PKPTRG94;
+				CODE_SIGN_ENTITLEMENTS = FireBots/FireBots.entitlements;
+				DEVELOPMENT_TEAM = PAY24GA3J8;
 				INFOPLIST_FILE = FireBots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobcomlab.FireBots;
@@ -845,7 +853,8 @@
 			baseConfigurationReference = 1B3A0B231511C729A0359CF4 /* Pods-FireBots.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65PKPTRG94;
+				CODE_SIGN_ENTITLEMENTS = FireBots/FireBots.entitlements;
+				DEVELOPMENT_TEAM = PAY24GA3J8;
 				INFOPLIST_FILE = FireBots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobcomlab.FireBots;

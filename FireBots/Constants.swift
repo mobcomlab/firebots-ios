@@ -21,13 +21,11 @@ struct LoadState {
 
 struct NotificationType {
     static let type = "type"
-    static let paymentConfirmed = "paymentConfirmed"
+    static let chatroomInvitation = "chatroomInvitation"
     static let newMessage = "newMessage"
 }
 
 struct NotificationExtra {
-    static let activityID = "activityID"
-    static let bookingID = "bookingID"
     static let chatroomID = "chatroomID"
     static let userID = "userID"
     static let badge = "badge"
