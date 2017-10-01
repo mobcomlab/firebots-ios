@@ -69,7 +69,6 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func startChatPressed() {
-        print(user)
         guard let user = user, let lat = user.lat, let long = user.long else {
             return
         }
