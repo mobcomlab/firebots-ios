@@ -49,12 +49,10 @@
 		8487FBDC1F7E037500D9A104 /* ValidationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBDA1F7E037500D9A104 /* ValidationOption.swift */; };
 		8487FBE11F7E03CE00D9A104 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBDF1F7E03CE00D9A104 /* User.swift */; };
 		8487FBED1F7E15BA00D9A104 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8487FBE31F7E15BA00D9A104 /* Chat.storyboard */; };
-		8487FBEE1F7E15BA00D9A104 /* ChatGalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBE41F7E15BA00D9A104 /* ChatGalleryDataSource.swift */; };
 		8487FBEF1F7E15BA00D9A104 /* ChatroomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBE51F7E15BA00D9A104 /* ChatroomCell.swift */; };
 		8487FBF01F7E15BA00D9A104 /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBE61F7E15BA00D9A104 /* ChatroomViewController.swift */; };
 		8487FBF11F7E15BA00D9A104 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBE71F7E15BA00D9A104 /* ChatViewController.swift */; };
 		8487FBF51F7E15BA00D9A104 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBEB1F7E15BA00D9A104 /* Message.swift */; };
-		8487FBF61F7E15BA00D9A104 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487FBEC1F7E15BA00D9A104 /* PhotoMediaItem.swift */; };
 		8487FBF91F7E2EE400D9A104 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8487FBF71F7E2EE400D9A104 /* SplashScreen.storyboard */; };
 		84A6B6501F7DEE9700FD7575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B64F1F7DEE9700FD7575 /* AppDelegate.swift */; };
 		84A6B6571F7DEE9700FD7575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6B6561F7DEE9700FD7575 /* Assets.xcassets */; };
@@ -128,12 +126,10 @@
 		8487FBDA1F7E037500D9A104 /* ValidationOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidationOption.swift; path = Validations/ValidationOption.swift; sourceTree = "<group>"; };
 		8487FBDF1F7E03CE00D9A104 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		8487FBE31F7E15BA00D9A104 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Chat.storyboard; path = Chat/Chat.storyboard; sourceTree = "<group>"; };
-		8487FBE41F7E15BA00D9A104 /* ChatGalleryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatGalleryDataSource.swift; path = Chat/ChatGalleryDataSource.swift; sourceTree = "<group>"; };
 		8487FBE51F7E15BA00D9A104 /* ChatroomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatroomCell.swift; path = Chat/ChatroomCell.swift; sourceTree = "<group>"; };
 		8487FBE61F7E15BA00D9A104 /* ChatroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatroomViewController.swift; path = Chat/ChatroomViewController.swift; sourceTree = "<group>"; };
 		8487FBE71F7E15BA00D9A104 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = Chat/ChatViewController.swift; sourceTree = "<group>"; };
 		8487FBEB1F7E15BA00D9A104 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Chat/Message.swift; sourceTree = "<group>"; };
-		8487FBEC1F7E15BA00D9A104 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoMediaItem.swift; path = Chat/PhotoMediaItem.swift; sourceTree = "<group>"; };
 		8487FBF81F7E2EE400D9A104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SplashScreen.storyboard; sourceTree = "<group>"; };
 		84A6B64C1F7DEE9700FD7575 /* FireBots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireBots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6B64F1F7DEE9700FD7575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,9 +264,7 @@
 				8487FBE31F7E15BA00D9A104 /* Chat.storyboard */,
 				8487FBE61F7E15BA00D9A104 /* ChatroomViewController.swift */,
 				8487FBE71F7E15BA00D9A104 /* ChatViewController.swift */,
-				8487FBE41F7E15BA00D9A104 /* ChatGalleryDataSource.swift */,
 				8487FBEB1F7E15BA00D9A104 /* Message.swift */,
-				8487FBEC1F7E15BA00D9A104 /* PhotoMediaItem.swift */,
 				8487FBE51F7E15BA00D9A104 /* ChatroomCell.swift */,
 			);
 			name = Chat;
@@ -643,7 +637,6 @@
 				8487FB941F7DFAEE00D9A104 /* LoginViewController.swift in Sources */,
 				8487FBAB1F7DFD4F00D9A104 /* PHPhotoLibrary+SaveImage.swift in Sources */,
 				8487FBD71F7E032A00D9A104 /* FBUser.swift in Sources */,
-				8487FBF61F7E15BA00D9A104 /* PhotoMediaItem.swift in Sources */,
 				8487FBC81F7E027A00D9A104 /* TextField.swift in Sources */,
 				8487FBB41F7DFD4F00D9A104 /* UIImageView+FIRStorageCache.swift in Sources */,
 				84A6B6501F7DEE9700FD7575 /* AppDelegate.swift in Sources */,
@@ -658,7 +651,6 @@
 				8487FBAE1F7DFD4F00D9A104 /* UIColor+Image.swift in Sources */,
 				8487FBD51F7E032A00D9A104 /* FBChatroom.swift in Sources */,
 				8487FBE11F7E03CE00D9A104 /* User.swift in Sources */,
-				8487FBEE1F7E15BA00D9A104 /* ChatGalleryDataSource.swift in Sources */,
 				8487FBB71F7DFD4F00D9A104 /* UIViewController+Keyboard.swift in Sources */,
 				8487FBAF1F7DFD4F00D9A104 /* UIImage+Alpha.swift in Sources */,
 				8487FBC31F7E027A00D9A104 /* Button.swift in Sources */,

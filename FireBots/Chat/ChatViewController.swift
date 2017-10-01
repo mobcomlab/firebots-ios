@@ -41,7 +41,7 @@ class ChatViewController: JSQMessagesViewController {
     var usersTypingQuery: DatabaseQuery!
     
     // Properties Normal
-    let defaults = UserDefaults.standard
+    var chatroomID: String!
     var sender: User!
     var messages: [Message] = []
     var messageKeys: [String] = []
@@ -55,7 +55,7 @@ class ChatViewController: JSQMessagesViewController {
         senderDisplayName = sender.username
         
         // Prepare Firebase data
-        chatroomRef = FBChatroom.getChatroomRef()
+        chatroomRef = FBChatroom.getChatroomRef().child(chatroomID)
         messageRef = chatroomRef.child(FBConstant.Chatroom.message)
         messageQuery = messageRef.queryOrdered(byChild: FBConstant.Message.sendingTime).queryLimited(toLast:5000)
         userIsTypingRef = chatroomRef.child(FBConstant.Chatroom.typingIndicator).child(senderId)
@@ -209,6 +209,7 @@ class ChatViewController: JSQMessagesViewController {
             FBConstant.Message.senderName: senderDisplayName,
             FBConstant.Message.sendingTime: Date().iso8601DateString,
             FBConstant.Message.text: text,
+            FBConstant.Message.isBot: false
             ] as [String : Any]
         
         itemRef.setValue(messageItem)

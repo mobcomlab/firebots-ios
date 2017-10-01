@@ -17,6 +17,7 @@ class ChatroomViewController: UIViewController {
     
     var user: User?
     var members: [User] = []
+    var chatroomID: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class ChatroomViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         if let chatViewController = segue.destination as? ChatViewController {
+            chatViewController.chatroomID = chatroomID
             chatViewController.sender = user
             chatViewController.members = members
         }
@@ -61,7 +63,8 @@ class ChatroomViewController: UIViewController {
     }
     
     @IBAction func startChatPressed() {
-        FBChatroom.getChatroomRef().child(FBConstant.Chatroom.user).child(FBUser.uid).setValue(true)
+        chatroomID = FBChatroom.getChatroomRef().childByAutoId().key
+        FBChatroom.getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.user).child(FBUser.uid).setValue(true)
         getMembers()
     }
     
