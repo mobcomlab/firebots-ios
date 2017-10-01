@@ -15,7 +15,7 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var startChatButton: Button!
     
-    var user: User?
+    var user: User!
     var members: [User] = []
     var chatroomID: String!
     var locationManager: CLLocationManager!
@@ -29,8 +29,6 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
         label.text = "FIREBOTS"
         label.textColor = Style.Color.white
         navigationItem.titleView = label
-        
-        startChatButton.enable()
         
         FBUser.getUserRef().child(FBUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
@@ -72,6 +70,8 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func startChatPressed() {
         chatroomID = FBChatroom.getChatroomRef().childByAutoId().key
+        let chatroom = Chatroom(id: chatroomID, lat: user.lat!, long: user.long!)
+        FBChatroom.getChatroomRef().child(chatroomID).setValue(chatroom.toAnyObject())
         FBChatroom.getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.user).child(FBUser.uid).setValue(true)
         getMembers()
     }
@@ -116,6 +116,8 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
             user.lat = latLng.latitude
             user.long = latLng.longitude
         }
+        
+        startChatButton.enable()
         
         FBUser.getUserRef().child(FBUser.uid).setValue(user.toAnyObject())
     }

@@ -8,8 +8,6 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseStorage
-import JSQMessagesViewController
 
 struct User {
     

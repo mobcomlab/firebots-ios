@@ -59,6 +59,7 @@
 		84A6B65A1F7DEE9700FD7575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A6B6581F7DEE9700FD7575 /* LaunchScreen.storyboard */; };
 		84A6B6651F7DEE9700FD7575 /* FireBotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B6641F7DEE9700FD7575 /* FireBotsTests.swift */; };
 		84A6B6701F7DEE9700FD7575 /* FireBotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B66F1F7DEE9700FD7575 /* FireBotsUITests.swift */; };
+		84D548931F80A04800F47428 /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D548921F80A04800F47428 /* Chatroom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		84A6B66B1F7DEE9700FD7575 /* FireBotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireBotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6B66F1F7DEE9700FD7575 /* FireBotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBotsUITests.swift; sourceTree = "<group>"; };
 		84A6B6711F7DEE9700FD7575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D548921F80A04800F47428 /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
 		BC2B6F008FF6956717CC4116 /* Pods_FireBotsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBotsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0872C549F137510FED1C422 /* Pods-FireBotsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBotsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBotsTests/Pods-FireBotsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				8487FBDF1F7E03CE00D9A104 /* User.swift */,
+				84D548921F80A04800F47428 /* Chatroom.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				8487FBF01F7E15BA00D9A104 /* ChatroomViewController.swift in Sources */,
 				8487FBB51F7DFD4F00D9A104 /* UIView+Rotate.swift in Sources */,
 				8487FBB31F7DFD4F00D9A104 /* UIImageView+Download.swift in Sources */,
+				84D548931F80A04800F47428 /* Chatroom.swift in Sources */,
 				8487FBB91F7DFD4F00D9A104 /* UIViewController+OpenMap.swift in Sources */,
 				8487FBCE1F7E02B100D9A104 /* FIRStorageCache.swift in Sources */,
 				8487FBDC1F7E037500D9A104 /* ValidationOption.swift in Sources */,
