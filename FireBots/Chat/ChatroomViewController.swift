@@ -9,15 +9,16 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import JSQMessagesViewController
+import CoreLocation
 
-class ChatroomViewController: UIViewController {
+class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var startChatButton: Button!
     
     var user: User?
     var members: [User] = []
     var chatroomID: String!
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,18 @@ class ChatroomViewController: UIViewController {
         navigationItem.titleView = label
         
         startChatButton.enable()
-
         
         FBUser.getUserRef().child(FBUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
                 self.user = user
+                self.locationManager = CLLocationManager()
+                self.locationManager.delegate = self;
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.locationManager.requestAlwaysAuthorization()
+                self.locationManager.startUpdatingLocation()
+            }
+            else {
+                self.mainViewController.swapToLoginViewController()
             }
         })
     }
@@ -91,5 +99,24 @@ class ChatroomViewController: UIViewController {
                 self.performSegue(withIdentifier: "ChatViewController", sender: nil)
             }
         })
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard var user = user, let location = manager.location else {
+            return
+        }
+        let latLng: CLLocationCoordinate2D = location.coordinate
+        if let lat = user.lat, let long = user.long {
+            if lat != latLng.latitude && long != latLng.longitude {
+                user.lat = latLng.latitude
+                user.long = latLng.longitude
+            }
+        }
+        else {
+            user.lat = latLng.latitude
+            user.long = latLng.longitude
+        }
+        
+        FBUser.getUserRef().child(FBUser.uid).setValue(user.toAnyObject())
     }
 }

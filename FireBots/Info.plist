@@ -24,6 +24,10 @@
 	<string>Camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photos</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BebasNeue.otf</string>
