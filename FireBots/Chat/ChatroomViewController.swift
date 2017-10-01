@@ -15,7 +15,7 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var startChatButton: Button!
     
-    var user: User!
+    var user: User?
     var members: [User] = []
     var chatroomID: String!
     var locationManager: CLLocationManager!
@@ -69,8 +69,12 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func startChatPressed() {
+        print(user)
+        guard let user = user, let lat = user.lat, let long = user.long else {
+            return
+        }
         chatroomID = FBChatroom.getChatroomRef().childByAutoId().key
-        let chatroom = Chatroom(id: chatroomID, lat: user.lat!, long: user.long!)
+        let chatroom = Chatroom(id: chatroomID, lat: lat, long: long)
         FBChatroom.getChatroomRef().child(chatroomID).setValue(chatroom.toAnyObject())
         FBChatroom.getChatroomRef().child(chatroomID).child(FBConstant.Chatroom.user).child(FBUser.uid).setValue(true)
         getMembers()
@@ -117,6 +121,7 @@ class ChatroomViewController: UIViewController, CLLocationManagerDelegate {
             user.long = latLng.longitude
         }
         
+        self.user = user
         startChatButton.enable()
         
         FBUser.getUserRef().child(FBUser.uid).setValue(user.toAnyObject())
