@@ -23,6 +23,7 @@ struct FBConstant {
     }
     
     struct Chatroom {
+        static let name = "name"
         static let lat = "lat"
         static let lng = "long"
         static let message = "message"

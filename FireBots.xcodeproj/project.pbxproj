@@ -267,9 +267,9 @@
 			children = (
 				8487FBE31F7E15BA00D9A104 /* Chat.storyboard */,
 				8487FBE61F7E15BA00D9A104 /* ChatroomViewController.swift */,
+				8487FBE51F7E15BA00D9A104 /* ChatroomCell.swift */,
 				8487FBE71F7E15BA00D9A104 /* ChatViewController.swift */,
 				8487FBEB1F7E15BA00D9A104 /* Message.swift */,
-				8487FBE51F7E15BA00D9A104 /* ChatroomCell.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";

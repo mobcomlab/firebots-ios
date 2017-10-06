@@ -12,12 +12,14 @@ import FirebaseDatabase
 struct Chatroom {
     
     let id: String
+    let name: String
     var lat: Double
     var long: Double
     var ref: DatabaseReference?
     
-    init(id: String, lat: Double, long: Double) {
+    init(id: String, name: String, lat: Double, long: Double) {
         self.id = id
+        self.name = name
         self.lat = lat
         self.long = long
         self.ref = nil
@@ -29,14 +31,16 @@ struct Chatroom {
         }
         id = snapshot.key
         ref = snapshot.ref
-        lat = snapshotValue[FBConstant.User.lat] as? Double ?? 0.0
-        long = snapshotValue[FBConstant.User.lng] as? Double ?? 0.0
+        name = snapshotValue[FBConstant.Chatroom.name] as? String ?? ""
+        lat = snapshotValue[FBConstant.Chatroom.lat] as? Double ?? 0.0
+        long = snapshotValue[FBConstant.Chatroom.lng] as? Double ?? 0.0
     }
     
     func toAnyObject() -> Any {
         return [
-            FBConstant.User.lat: lat,
-            FBConstant.User.lng: long
+            FBConstant.Chatroom.name: name,
+            FBConstant.Chatroom.lat: lat,
+            FBConstant.Chatroom.lng: long
         ]
     }
 }

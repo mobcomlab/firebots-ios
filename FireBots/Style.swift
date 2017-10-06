@@ -40,6 +40,7 @@ struct Style {
         static let blue = UIColor(hex6: 0x4285F4)
         static let blueCorrectedForNavbar = UIColor(hex6: 0x519BF7) // Actually #4285F4
         static let yellow = UIColor(hex6: 0xFBBC05)
+        static let orange = UIColor(hex6: 0xF5810E)
         static let red = UIColor(hex6: 0xEA4235)
         static let black = UIColor(hex6: 0x000000)
         static let lightBlack = UIColor(hex6: 0x404040)
@@ -51,7 +52,7 @@ struct Style {
         
         // Default theme
         static let primary = blue
-        static let secondary = yellow
+        static let secondary = orange
         static let background = superLightGray
         
         // Component defaults
@@ -69,7 +70,7 @@ struct Style {
         static let pageControlSelected = UIColor(hex6: 0xEFA60A)
         
         static let buttonEnableBackground = secondary
-        static let buttonEnableBorder = UIColor(hex6: 0xFDF5DC)
+        static let buttonEnableBorder = UIColor(hex6: 0xF9AD65)
         static let buttonDisableBackground = lightGray
         static let buttonDisableBorder = offWhite
         
